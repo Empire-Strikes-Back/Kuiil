@@ -1,0 +1,20 @@
+i am get-to-the-ship game program, i say:
+
+
+players play with their mouse
+my map is tiled, like in Heroes of Might and Magic
+player has one hero, their goal is to get to the ship
+i spawn ship randomly on the map, far from where i spawn player
+
+
+my world is this:
+
+several heroes from different planents acciednetally unite (with their own motives) but end up looking for the vitaal ship
+when they find it, with high hopes, there is a lost-hope vitaal there who tells that vitaal dismatled, and are mostly a myth now
+
+heroes
+
+one from sandy desert planet with traditions and customs suffocating and forceful, she disobeys her family and has to journey through the desert to fly off the planet
+one a highly positioned kind-spirited long-time civil officer who seeks change on a feeling, he's having is empty
+one a no-fear no-doubt adventurous hero who gets into trouble and just happens to bump into others, he does not seek or want to go, but gets curious and goes
+one a doubtful, thinking, quite guy from a rocky rainy planet with no access to galactic net, he built the droid who was able to listen to frequencies, he learned about the vitaal ship and goes searching
