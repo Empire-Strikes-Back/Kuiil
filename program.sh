@@ -1,7 +1,7 @@
 #!/bin/bash
 
 repl(){
-  lein repl
+  clj -M:repl
 }
 
 main(){
