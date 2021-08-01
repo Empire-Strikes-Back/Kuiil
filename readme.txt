@@ -6,3 +6,4 @@ i have no resources - only source files
 i have no assets - i use words
 i have no graphics - i only use words
 my color is white
+i am single-player game
