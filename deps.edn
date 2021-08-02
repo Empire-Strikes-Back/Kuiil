@@ -6,9 +6,7 @@
  :aliases
  {:repl
   {:extra-deps {deps-repl/deps-repl {:git/url "https://github.com/empire-strikes-back/deps-repl"
-                                     :sha "e9c8235e41b7da0d9e52e2a1337c6cc847860543"}}
-   :main-opts ["-m" "deps-repl.core"
-               "--ns-name" "get-to-the-ship.main"]}
+                                     :sha "8904c39e136aacafc70c3e066856fc87bcdec127"}}}
 
   :main
   {:jvm-opts ["-Dclojure.core.async.pool-size=1" "-Dclojure.compiler.direct-linking=true"]
