@@ -19,6 +19,7 @@
 (defonce stateA (atom nil))
 (defonce jframe nil)
 (defonce canvas nil)
+(defonce graphics nil)
 
 (defn -main [& args]
   (println ::-main)
@@ -28,15 +29,16 @@
 
     (let [jframe (JFrame. "get-to-the-ship")
           canvas (Canvas.)]
-      (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
-      (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
       (doto jframe
         (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
         (.setSize 1600 1200)
         (.setLocationByPlatform true)
         (.setVisible true)
         (.add (doto canvas
-                (.setSize 1600 1200)))))
+                (.setSize 1600 1200))))
+      (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
+      (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
+      (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas))))
     (go)))
 
 (comment
@@ -49,6 +51,8 @@
      :reload)
     (swap! stateA assoc ::random (rand-int 1000)))
 
-  
+  (.drawLine graphics 0 0 1000 1000)
+
+
   ;
   )
