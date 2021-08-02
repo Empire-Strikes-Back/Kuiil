@@ -5,3 +5,4 @@ my runtime is jvm
 i have no resources - only source files
 i have no assets - i use words and very soft airy colors for shapres - my main color is white
 i am single-player game
+i do not use mouse - player uses text - repl - to interact with me
