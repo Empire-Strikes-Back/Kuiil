@@ -53,8 +53,10 @@
 
   (.drawLine graphics 0 0 1000 1000)
 
-  (let [byte-arr (.getBytes "get-to-the-ship" "UTF-8")]
+  (let [byte-arr (.getBytes "word" "UTF-8")]
     (.drawBytes graphics byte-arr 0 (alength byte-arr) 500 500))
+  
+  (.clearRect graphics 0 0 1000 1000)
 
 
   ;
