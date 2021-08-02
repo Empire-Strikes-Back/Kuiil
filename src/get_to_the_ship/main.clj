@@ -47,6 +47,19 @@
       (alter-var-root #'get-to-the-ship.main/repl (constantly repl)))
     (go)))
 
+(defn draw-line
+  []
+  (.drawLine graphics 0 0 1000 1000))
+
+(defn draw-word
+  []
+  (let [byte-arr (.getBytes "word" "UTF-8")]
+    (.drawBytes graphics byte-arr 0 (alength byte-arr) 500 500)))
+
+(defn clear
+  []
+  (.clearRect graphics 0 0 1000 1000))
+
 (comment
 
   (-main)
