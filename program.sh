@@ -17,4 +17,11 @@ main(){
     -M -m get-to-the-ship.main
 }
 
+uberjar(){
+  clj \
+    -X:uberjar genie.core/process \
+    :uberjar-name out/get-to-the-ship.standalone.jar \
+    :main-ns get-to-the-ship.main
+}
+
 "$@"
