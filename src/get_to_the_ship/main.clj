@@ -10,17 +10,17 @@
    [clojure.java.io :as io])
   (:import
    (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea)
-   (java.awt Canvas)
-   (java.awt.event WindowListener)))
+   (java.awt Canvas Graphics)
+   (java.awt.event WindowListener KeyListener KeyEvent)))
 
 (println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
 (do (set! *warn-on-reflection* true) (set! *unchecked-math* true) (clojure.spec.alpha/check-asserts true))
 
 (defonce stateA (atom nil))
-(defonce jframe nil)
-(defonce canvas nil)
-(defonce graphics nil)
-(defonce repl nil)
+(defonce ^JFrame jframe nil)
+(defonce ^Canvas canvas nil)
+(defonce ^Graphics graphics nil)
+(defonce ^JTextArea repl nil)
 
 (defn -main [& args]
   (println ::-main)
@@ -41,6 +41,12 @@
         (.add (doto repl
                 (.setLocation 0 1000)
                 (.setSize 1600 200))))
+      (.addKeyListener repl
+                       (reify KeyListener
+                         (keyTyped [_ event])
+                         (keyPressed [_ event])
+                         (keyReleased [_ event]
+                           (println (.getKeyCode ^KeyEvent event)))))
       (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
       (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
       (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
