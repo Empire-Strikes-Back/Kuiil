@@ -29,9 +29,7 @@
         (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
         (.setSize 1600 1200)
         (.setLocationByPlatform true)
-        (.setVisible true)
-        (.setJMenuBar (doto (JMenuBar.)
-                        (.add (JMenu. "program"))))))
+        (.setVisible true)))
 
     (go)))
 
