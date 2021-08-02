@@ -9,7 +9,7 @@
    [clojure.spec.alpha :as s]
    [clojure.java.io :as io])
   (:import
-   (javax.swing JFrame JLabel JButton SwingConstants)
+   (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu)
    (java.awt.event WindowListener)))
 
 (println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
@@ -29,7 +29,9 @@
         (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
         (.setSize 1600 1200)
         (.setLocationByPlatform true)
-        (.setVisible true)))
+        (.setVisible true)
+        (.setJMenuBar (doto (JMenuBar.)
+                        (.add (JMenu. "program"))))))
 
     (go)))
 
