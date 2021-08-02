@@ -13,10 +13,29 @@
    (javafx.event Event EventHandler)
    (javafx.stage WindowEvent)
    (javafx.scene.control DialogEvent Dialog ButtonType ButtonBar$ButtonData)
+   (javafx.scene.canvas Canvas)
+   (javafx.scene.paint Color)
    #_javafx.application.Platform))
 
 (println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
 (do (set! *warn-on-reflection* true) (set! *unchecked-math* true) (clojure.spec.alpha/check-asserts true))
+
+(defn fx-canvas
+  [{:as opts
+    :keys [::canvas-width
+           ::canvas-height]}]
+  {:fx/type :canvas
+   :width canvas-width
+   :height canvas-height
+   :draw (fn [^Canvas canvas]
+           (doto (.getGraphicsContext2D canvas)
+             (.clearRect 0 0 canvas-width canvas-height)
+             (.setStroke Color/LIGHTGREY)
+             (.strokeRect 0 0 canvas-width canvas-height)
+             #_(.setFill Color/LIGHTGREY)
+             #_(.fillRoundRect 0 0 canvas-width canvas-height canvas-height canvas-height)
+             #_(.setFill Color/GREEN)
+             #_(.fillRoundRect 0 0 (* canvas-width 10) canvas-height canvas-height canvas-height)))})
 
 (defn fx-stage
   [{:as opts
@@ -30,7 +49,9 @@
    :scene {:fx/type :scene
            :root {:fx/type :v-box
                   ;; :padding 100
-                  :children []}}})
+                  :children [{:fx/type fx-canvas
+                              ::canvas-width 1400
+                              ::canvas-height 1000}]}}})
 
 (defonce stateA (atom nil))
 
