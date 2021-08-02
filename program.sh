@@ -24,4 +24,31 @@ uberjar(){
     :main-ns get-to-the-ship.main
 }
 
+j-package(){
+  OS=${1:?"Need OS type (windows/linux/mac)"}
+
+  echo "Starting build..."
+
+  if [ "$OS" == "windows" ]; then
+    J_ARG="--win-menu --win-dir-chooser --win-shortcut"
+          
+  elif [ "$OS" == "linux" ]; then
+      J_ARG="--linux-shortcut"
+  else
+      J_ARG=""
+  fi
+
+  jpackage \
+    --input out/jpackage-input \
+    --dest out \
+    --main-jar get-to-the-ship.standalone.jar \
+    --name "get-to-the-ship" \
+    --main-class clojure.main \
+    --arguments -m \
+    --arguments get-to-the-ship.main \
+    --app-version "1" \
+    $J_ARG
+  
+}
+
 "$@"
