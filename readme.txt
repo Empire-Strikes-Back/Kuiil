@@ -7,4 +7,3 @@ i have no assets - i use words
 i have no graphics - i only use words
 my color is white
 i am single-player game
-i have no numbers - only words
