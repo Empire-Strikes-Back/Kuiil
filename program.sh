@@ -22,6 +22,8 @@ uberjar(){
     -X:uberjar genie.core/process \
     :uberjar-name out/get-to-the-ship.standalone.jar \
     :main-ns get-to-the-ship.main
+  mkdir -p out/jpackage-input
+  mv out/get-to-the-ship.standalone.jar out/jpackage-input/
 }
 
 j-package(){
