@@ -9,7 +9,7 @@
    [clojure.spec.alpha :as s]
    [clojure.java.io :as io])
   (:import
-   (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu)
+   (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea)
    (java.awt Canvas)
    (java.awt.event WindowListener)))
 
@@ -20,6 +20,7 @@
 (defonce jframe nil)
 (defonce canvas nil)
 (defonce graphics nil)
+(defonce repl nil)
 
 (defn -main [& args]
   (println ::-main)
@@ -28,17 +29,22 @@
     (add-watch stateA :watch-fn (fn [k stateA old-state new-state] new-state))
 
     (let [jframe (JFrame. "get-to-the-ship")
-          canvas (Canvas.)]
+          canvas (Canvas.)
+          repl (JTextArea. 10 100)]
       (doto jframe
         (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
         (.setSize 1600 1200)
         (.setLocationByPlatform true)
         (.setVisible true)
         (.add (doto canvas
-                (.setSize 1600 1200))))
+                (.setSize 1600 1000)))
+        (.add (doto repl
+                (.setLocation 0 1000)
+                (.setSize 1600 200))))
       (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
       (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
-      (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas))))
+      (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
+      (alter-var-root #'get-to-the-ship.main/repl (constantly repl)))
     (go)))
 
 (comment
