@@ -1,8 +1,8 @@
 #!/bin/bash
 
 repl(){
-  clj -X:repl \
-    deps-repl.core/process \
+  clj \
+    -X:repl deps-repl.core/process \
     :main-ns get-to-the-ship.main \
     :port 7788 \
     :host '"0.0.0.0"' \
@@ -12,9 +12,9 @@ repl(){
 
 main(){
   clojure \
-  -J-Dclojure.core.async.pool-size=1 \
-  -J-Dclojure.compiler.direct-linking=false \
-  -M -m get-to-the-ship.main
+    -J-Dclojure.core.async.pool-size=1 \
+    -J-Dclojure.compiler.direct-linking=false \
+    -M -m get-to-the-ship.main
 }
 
 "$@"
