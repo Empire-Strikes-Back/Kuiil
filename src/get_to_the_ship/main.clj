@@ -30,7 +30,8 @@
 
     (let [jframe (JFrame. "get-to-the-ship")
           canvas (Canvas.)
-          repl (JTextArea. 10 100)]
+          repl (JTextArea. 10 100)
+          namespace (find-ns 'get-to-the-ship.main)]
       (doto jframe
         (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
         (.setSize 1600 1200)
@@ -46,7 +47,12 @@
                          (keyTyped [_ event])
                          (keyPressed [_ event])
                          (keyReleased [_ event]
-                           (println (.getKeyCode ^KeyEvent event)))))
+                           #_(println (.getKeyCode ^KeyEvent event))
+                           (when (== (.getKeyCode ^KeyEvent event) 10)
+                             (println (.getText repl) (read-string (.getText repl)))
+                             (binding [*ns* namespace]
+                               (eval (read-string (.getText repl))))
+                             (.setText repl "")))))
       (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
       (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
       (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
