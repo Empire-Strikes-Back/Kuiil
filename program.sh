@@ -18,11 +18,9 @@ main(){
 }
 
 uberjar(){
-
   lein with-profiles +uberjar uberjar
   mkdir -p out/jpackage-input
-  mv out/deathstar.standalone.jar out/jpackage-input/
-  #  java -Dclojure.core.async.pool-size=1 -jar out/deathstar.standalone.jar
+  mv out/get-to-the-ship.standalone.jar out/jpackage-input/
 }
 
 j-package(){
