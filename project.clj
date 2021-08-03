@@ -37,6 +37,7 @@
                                   "-Dclojure.core.async.pool-size=1"
                                   #_"-Dcljfx.skip-javafx-initialization=true"]
                        :aot :all}}
+  :target-path "out"
 
   :main ^{:skip-aot false} ~MAIN
   :jvm-opts ["-Xms768m" "-Xmx11998m" "-Dclojure.compiler.direct-linking=true" "-Dclojure.core.async.pool-size=1"]
