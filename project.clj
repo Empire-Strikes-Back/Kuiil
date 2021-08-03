@@ -27,7 +27,16 @@
                  :host             "0.0.0.0"
                  :port             7788}
   :profiles {:repl {:plugins [[nrepl/nrepl "0.8.3"]
-                              [cider/cider-nrepl "0.25.5"]]}}
+                              [cider/cider-nrepl "0.25.5"]]}
+
+             :uberjar {:main ~MAIN
+                       :uberjar-name "get-to-the-ship.standalone.jar"
+                       :jar-name     "get-to-the-ship.jar"
+                       :uberjar-exclusions []
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"
+                                  "-Dclojure.core.async.pool-size=1"
+                                  #_"-Dcljfx.skip-javafx-initialization=true"]
+                       :aot :all}}
 
   :main ^{:skip-aot false} ~MAIN
   :jvm-opts ["-Xms768m" "-Xmx11998m" "-Dclojure.compiler.direct-linking=true" "-Dclojure.core.async.pool-size=1"]
