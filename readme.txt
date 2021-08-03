@@ -5,5 +5,6 @@ my runtime is jvm
 i have no resources - only source files
 i have no assets - i use words
 i only have black color for lines and words on white canvas, my main color is white
+i only have plain canvas and one namespace - main
 i am single-player game
 i do not use mouse - player uses text - repl - to interact with me
