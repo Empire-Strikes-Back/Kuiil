@@ -18,6 +18,12 @@ main(){
 }
 
 uberjar(){
+  clojure \
+    -X:uberjar hf.depstar/uberjar \
+    :aot true \
+    :jar out/get-to-the-ship.standalone.jar \
+    :verbose false \
+    :main-class get-to-the-ship.main
   mkdir -p out/jpackage-input
   mv out/get-to-the-ship.standalone.jar out/jpackage-input/
 }
