@@ -62,7 +62,6 @@
       (.setSize 1600 1200)
       #_(.setLocationByPlatform true)
       (.setLocation 2000 200)
-      (.setVisible true)
       (.add (doto jpanel
               (.setLayout (BoxLayout. jpanel BoxLayout/Y_AXIS))
               (.add (doto canvas
@@ -70,7 +69,8 @@
               #_(.setSize 1600 200)
               (.add (JScrollPane. (doto output
                                     (.setEditable false))))
-              (.add (doto repl))) BorderLayout/PAGE_END))
+              (.add (doto repl))) BorderLayout/PAGE_END)
+      (.setVisible true))
 
     (.addKeyListener repl key-listener)
     (.addWindowListener jframe window-listener)
