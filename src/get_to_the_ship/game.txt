@@ -1,7 +1,6 @@
 i am get-to-the-ship game program, i say:
 
 
-players play with their mouse
 my map is tiled, like in Heroes of Might and Magic
 player has one hero, their goal is to get to the ship
 i spawn ship randomly on the map, far from where i spawn player
