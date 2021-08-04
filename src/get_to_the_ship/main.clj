@@ -26,7 +26,7 @@
 
 (defn window
   []
-  (let [jframe (JFrame. "get-to-the-ship")
+  (let [jframe (JFrame. "i am get-to-the-ship program")
         canvas (Canvas.)
         output (JTextArea. 10 100)
         repl (JTextArea. 1 100)
