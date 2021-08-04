@@ -10,7 +10,7 @@
    [clojure.java.io :as io])
   (:import
    (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea)
-   (java.awt Canvas Graphics)
+   (java.awt Canvas Graphics BorderLayout)
    (java.awt.event WindowListener KeyListener KeyEvent WindowAdapter WindowEvent)))
 
 (println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
@@ -58,8 +58,7 @@
       (.add (doto canvas
               (.setSize 1600 1000)))
       (.add (doto repl
-              (.setLocation 0 1000)
-              (.setSize 1600 200))))
+              (.setLocation 0 1000)) BorderLayout/PAGE_END))
     (.addKeyListener repl key-listener)
     (.addWindowListener jframe window-listener)
 
@@ -68,6 +67,12 @@
     (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
     (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
     nil))
+
+(defn reload
+  []
+  (require
+   '[get-to-the-ship.main]
+   :reload))
 
 (defn -main [& args]
   (println ::-main)
