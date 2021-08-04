@@ -9,7 +9,7 @@
    [clojure.spec.alpha :as s]
    [clojure.java.io :as io])
   (:import
-   (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea)
+   (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea JScrollPane JPanel BoxLayout)
    (java.awt Canvas Graphics BorderLayout)
    (java.awt.event WindowListener KeyListener KeyEvent WindowAdapter WindowEvent)))
 
@@ -27,7 +27,8 @@
   []
   (let [jframe (JFrame. "get-to-the-ship")
         canvas (Canvas.)
-        repl (JTextArea. 10 100)
+        output (JTextArea. 10 100)
+        repl (JTextArea. 1 100)
         namespace (find-ns 'get-to-the-ship.main)
         key-listener (reify KeyListener
                        (keyTyped [_ event])
@@ -38,7 +39,8 @@
                                     (not (empty? (.getText repl))))
                            #_(println (.getText repl) (read-string (.getText repl)))
                            (binding [*ns* namespace]
-                             (eval (read-string (.getText repl))))
+                             (.append output (str (eval (read-string (.getText repl)))))
+                             (.append output "\n"))
                            (.setText repl ""))))
         window-listener (reify WindowListener
                           (windowActivated [_ event])
@@ -58,8 +60,16 @@
       (.setVisible true)
       (.add (doto canvas
               (.setSize 1600 1000)))
-      (.add (doto repl
-              (.setLocation 0 1000)) BorderLayout/PAGE_END))
+      (.add (let [jpanel (JPanel.)]
+              (doto jpanel
+                (.setLayout (BoxLayout. jpanel BoxLayout/Y_AXIS))
+                #_(.setSize 1600 200)
+                (.add (JScrollPane. (doto output
+                                      (.setEditable false))))
+                (.add (doto repl)))) BorderLayout/PAGE_END)
+      #_(.add repl BorderLayout/PAGE_END)
+      #_(.add (doto (JScrollPane. output)) BorderLayout/PAGE_END))
+
     (.addKeyListener repl key-listener)
     (.addWindowListener jframe window-listener)
 
