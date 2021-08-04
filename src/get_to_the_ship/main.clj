@@ -95,10 +95,8 @@
   (let []
     #_(reset! stateA {})
     #_(add-watch stateA :watch-fn (fn [k stateA old-state new-state] new-state))
-    
-    (window)
-    
-    (<!! (chan))))
+
+    (window)))
 
 (defn draw-line
   []
