@@ -2,6 +2,7 @@ i am get-to-the-ship game program, i say:
 
 
 my map is not tiles, but clear space
+i use coordinates and distances
 player has one hero, their goal is to get to the ship
 i spawn ship randomly on the map, far from where i spawn player
 i show players the whole map from start
