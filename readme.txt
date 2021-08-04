@@ -11,3 +11,4 @@ i only have canvas and repl, my repl is one line
 i am single-player game
 i do not use mouse - player uses text - repl - to interact with me
 i use no libraries - only swing textarea and canvas
+i use one thread
