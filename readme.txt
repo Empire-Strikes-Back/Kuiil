@@ -13,3 +13,4 @@ i do not use mouse - player uses text - repl - to interact with me
 i use no libraries - only swing textarea and canvas
 i use one thread
 player sees me in my entirety within window from start
+my window has fixed size and is no more than a third of screen
