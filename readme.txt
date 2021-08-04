@@ -16,3 +16,4 @@ player sees me in my entirety within window from start
 my window has fixed size and is no more than a third of screen
 i do not try catch or limit player eval - my repl gives complete access to me, running program - direct eval
 i am not a one-time-story game - i can be played and played again
+i have no ai
