@@ -19,7 +19,6 @@ main(){
 }
 
 uberjar(){
-  lein with-profiles +uberjar uberjar
   mkdir -p out/jpackage-input
   mv out/get-to-the-ship.standalone.jar out/jpackage-input/
 }
