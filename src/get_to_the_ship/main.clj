@@ -30,6 +30,7 @@
         canvas (Canvas.)
         output (JTextArea. 10 100)
         repl (JTextArea. 1 100)
+        jpanel (JPanel.)
         namespace (find-ns 'get-to-the-ship.main)
         key-listener (reify KeyListener
                        (keyTyped [_ event])
@@ -38,7 +39,7 @@
                          #_(println (.getKeyCode ^KeyEvent event))
                          (when (and (== (.getKeyCode ^KeyEvent event) 10)
                                     (not (empty? (.getText repl))))
-                           #_(println (.getText repl) (read-string (.getText repl)))
+                           (println :eval (.getText repl) (read-string (.getText repl)))
                            (binding [*ns* namespace]
                              (.append output (str (eval (read-string (.getText repl)))))
                              (.append output "\n"))
@@ -59,26 +60,25 @@
       #_(.setLocationByPlatform true)
       (.setLocation 2000 200)
       (.setVisible true)
-      (.add (doto canvas
-              (.setSize 1600 1000)))
-      (.add (let [jpanel (JPanel.)]
-              (doto jpanel
-                (.setLayout (BoxLayout. jpanel BoxLayout/Y_AXIS))
-                #_(.setSize 1600 200)
-                (.add (JScrollPane. (doto output
-                                      (.setEditable false))))
-                (.add (doto repl)))) BorderLayout/PAGE_END)
-      #_(.add repl BorderLayout/PAGE_END)
-      #_(.add (doto (JScrollPane. output)) BorderLayout/PAGE_END))
+      (.add (doto jpanel
+              (.setLayout (BoxLayout. jpanel BoxLayout/Y_AXIS))
+              (.add (doto canvas
+                      (.setSize 1600 1000)))
+              #_(.setSize 1600 200)
+              (.add (JScrollPane. (doto output
+                                    (.setEditable false))))
+              (.add (doto repl))) BorderLayout/PAGE_END))
 
     (.addKeyListener repl key-listener)
     (.addWindowListener jframe window-listener)
 
-    (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
-    (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
-    (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
-    (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
-    (alter-var-root #'get-to-the-ship.main/output (constantly output))
+    (do
+      (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
+      (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
+      (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
+      (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
+      (alter-var-root #'get-to-the-ship.main/output (constantly output)))
+
     nil))
 
 (defn reload
