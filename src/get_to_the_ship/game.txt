@@ -1,7 +1,7 @@
 i am get-to-the-ship game program, i say:
 
 
-my map is not tiles, but clear space
+my map is tiled, like in Heroes of Might and Magic
 player has one hero, their goal is to get to the ship
 i spawn ship randomly on the map, far from where i spawn player
 i show players the whole map from start
