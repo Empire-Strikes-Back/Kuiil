@@ -22,6 +22,7 @@
 (defonce ^Canvas canvas nil)
 (defonce ^Graphics graphics nil)
 (defonce ^JTextArea repl nil)
+(defonce ^JTextArea output nil)
 
 (defn window
   []
@@ -77,6 +78,7 @@
     (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
     (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
     (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
+    (alter-var-root #'get-to-the-ship.main/output (constantly output))
     nil))
 
 (defn reload
@@ -104,9 +106,13 @@
   (let [byte-arr (.getBytes "word" "UTF-8")]
     (.drawBytes graphics byte-arr 0 (alength byte-arr) 500 500)))
 
-(defn clear
+(defn clear-canvas
   []
   (.clearRect graphics 0 0 1000 1000))
+
+(defn clear
+  []
+  (.setText output ""))
 
 (comment
 
