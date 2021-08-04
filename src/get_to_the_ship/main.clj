@@ -34,16 +34,19 @@
         namespace (find-ns 'get-to-the-ship.main)
         key-listener (reify KeyListener
                        (keyTyped [_ event])
-                       (keyPressed [_ event])
+                       (keyPressed [_ event]
+                         (when (== (.getKeyCode ^KeyEvent event) KeyEvent/VK_ENTER)
+                           (.consume ^KeyEvent event)))
                        (keyReleased [_ event]
                          #_(println (.getKeyCode ^KeyEvent event))
-                         (when (and (== (.getKeyCode ^KeyEvent event) 10)
+                         (when (and (== (.getKeyCode ^KeyEvent event) KeyEvent/VK_ENTER)
                                     (not (empty? (.getText repl))))
                            (println :eval (.getText repl) (read-string (.getText repl)))
                            (binding [*ns* namespace]
                              (.append output (str (eval (read-string (.getText repl)))))
                              (.append output "\n"))
-                           (.setText repl ""))))
+                           (.setText repl "")
+                           (.consume ^KeyEvent event))))
         window-listener (reify WindowListener
                           (windowActivated [_ event])
                           (windowClosed [_ event]
