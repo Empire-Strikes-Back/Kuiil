@@ -13,8 +13,8 @@
    (java.awt Canvas Graphics BorderLayout)
    (java.awt.event WindowListener KeyListener KeyEvent WindowAdapter WindowEvent)))
 
-(println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
-(println "clojure.core.async.pool-size" (System/getProperty "clojure.core.async.pool-size"))
+#_(println "clojure.compiler.direct-linking" (System/getProperty "clojure.compiler.direct-linking"))
+#_(println "clojure.core.async.pool-size" (System/getProperty "clojure.core.async.pool-size"))
 (do (set! *warn-on-reflection* true) (set! *unchecked-math* true) (clojure.spec.alpha/check-asserts true))
 
 (defonce stateA (atom nil))
