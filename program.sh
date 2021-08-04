@@ -2,6 +2,7 @@
 
 repl(){
   clj \
+    -J-Dclojure.core.async.pool-size=1 \
     -X:repl deps-repl.core/process \
     :main-ns get-to-the-ship.main \
     :port 7788 \
