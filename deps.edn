@@ -10,4 +10,4 @@
 
   :uberjar
   {:extra-deps {genie/genie {:git/url "https://github.com/empire-strikes-back/genie"
-                             :sha "8dc55bff334f866290383293a7f82b18181bcae2"}}}}}
+                             :sha "672340f3b207fbc2fc5c7dd1bc1eb2575bea0e1c"}}}}}
