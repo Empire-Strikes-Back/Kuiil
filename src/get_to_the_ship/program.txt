@@ -16,6 +16,7 @@ i use coordinates and distances
 player has four heroes, their goal is to get to the ship
 i spawn ship randomly on the map, far from where i spawn heroes
 i show players the whole map from start
+my map shows planets and ships
 
 my world is this:
 
