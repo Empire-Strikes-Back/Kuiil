@@ -82,6 +82,17 @@
       (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
       (alter-var-root #'get-to-the-ship.main/output (constantly output)))
 
+    (go
+      (<! (timeout 100))
+      (doseq [[name position] (zipmap
+                               (shuffle ["ship" "el" "cee" "bib" "ar"])
+                               (shuffle [[(+ 50 (rand-int 250)) (+ 50 (rand-int 350))]
+                                         [(+ 100 (rand-int 300)) (+ 800 (rand-int 100))]
+                                         [(+ 1200 (rand-int 200)) (+ 700 (rand-int 250))]
+                                         [(+ 300 (rand-int 200)) (+ 400 (rand-int 300))]
+                                         [(+ 1300 (rand-int 200)) (+ 100 (rand-int 200))]]))]
+        (.drawString graphics ^String name ^int (first position) ^int (second position))))
+
     nil))
 
 (defn reload
