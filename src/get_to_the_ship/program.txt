@@ -15,6 +15,7 @@ i have no time
 there are four heroes on the map, their goal is to get to the ship
 i put ship randomly on the map, far from where i put heroes
 my map is not tiles, but clear space
+i use coordinates and distances
 
 my world is this:
 
