@@ -18,6 +18,7 @@ i spawn ship randomly on the map, far from where i spawn heroes
 i show players the whole map from start
 my map shows planets and ships
 my map is randomly generated
+player evaluates expressions and that leads to my world changing - and heroes getting or not to the ship 
 
 my world is this:
 
