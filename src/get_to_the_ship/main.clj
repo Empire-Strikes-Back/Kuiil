@@ -7,7 +7,8 @@
                                      pipeline pipeline-async]]
    [clojure.string]
    [clojure.spec.alpha :as s]
-   [clojure.java.io :as io])
+   [clojure.java.io :as io]
+   [clojure.repl :refer [dir doc find-doc apropos source]])
   (:import
    (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea JScrollPane JPanel BoxLayout)
    (java.awt Canvas Graphics BorderLayout)
