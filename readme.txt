@@ -6,4 +6,3 @@ i have no resources - only source files
 i have no assets - i use words
 i am single-player game
 i do not use mouse - player uses text - repl - to interact with me
-i have no ai
