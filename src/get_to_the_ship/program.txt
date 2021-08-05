@@ -3,6 +3,7 @@ i am get-to-the-ship game program, i say:
 i only have black color for lines and words on white canvas, my main color is white
 i only have plain canvas and one namespace - main
 my repl is basic text area with no formatting
+i only have canvas and repl, my repl is one line
 my map is not tiles, but clear space
 i use coordinates and distances
 player has four heroes, their goal is to get to the ship
