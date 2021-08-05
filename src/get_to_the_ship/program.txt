@@ -8,6 +8,7 @@ i use no libraries - only swing textarea and canvas
 i use one thread
 my window has fixed size and is no more than a third of screen
 i do not try catch or limit player eval - my repl gives complete access to me, running program - direct eval
+i am not a one-time-story game - i can be played and played again
 my map is not tiles, but clear space
 i use coordinates and distances
 player has four heroes, their goal is to get to the ship
