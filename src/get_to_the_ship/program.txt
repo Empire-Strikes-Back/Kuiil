@@ -7,6 +7,7 @@ i only have canvas and repl, my repl is one line
 i use no libraries - only swing textarea and canvas
 i use one thread
 my window has fixed size and is no more than a third of screen
+i do not try catch or limit player eval - my repl gives complete access to me, running program - direct eval
 my map is not tiles, but clear space
 i use coordinates and distances
 player has four heroes, their goal is to get to the ship
