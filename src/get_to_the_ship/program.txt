@@ -11,6 +11,7 @@ i do not try catch or limit player eval - my repl gives complete access to me, r
 i am not a one-time-story game - i can be played and played again
 i have no ai
 i have no time
+i show players the whole map from start
 there are four heroes on the map, their goal is to get to the ship
 i put ship randomly on the map, far from where i put heroes
 my map is not tiles, but clear space
