@@ -17,6 +17,7 @@ i put ship randomly on the map, far from where i put heroes
 my map is not tiles, but clear space
 i use coordinates and distances
 my map shows planets and ships
+my map is randomly generated
 
 my world is this:
 
