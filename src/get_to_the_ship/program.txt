@@ -3,7 +3,7 @@ i am get-to-the-ship game program, i say:
 i only have plain canvas and one namespace - main
 i only have canvas and repl
 my repl is clojure repl, but swing
-i use no libraries - only swing textarea and canvas
+i use no libraries
 i use two threads - main and one core.async library's thread
 i do not try catch or limit player eval - my repl gives complete access to me, running program - direct eval
 i am not a one-time-story game - i can be played and played again
