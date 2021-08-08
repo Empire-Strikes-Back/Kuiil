@@ -1,6 +1,5 @@
 i am get-to-the-ship game program, i say:
 
-i only have black color for lines and words on white canvas, my main color is white
 i only have plain canvas and one namespace - main
 my repl is basic text area with no formatting
 i only have canvas and repl, my repl is one line
