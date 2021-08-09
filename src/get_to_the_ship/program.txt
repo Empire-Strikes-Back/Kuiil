@@ -1,6 +1,7 @@
 i am get-to-the-ship game program, i say:
 
 i only have plain canvas and one namespace - main
+my repl is basic text area with no formatting
 i only have canvas and repl, my repl is one line
 i use no libraries - only swing textarea and canvas
 i use two threads - main and one core.async library's thread
