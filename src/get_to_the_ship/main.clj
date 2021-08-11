@@ -6,7 +6,6 @@
                                      timeout to-chan  sliding-buffer dropping-buffer
                                      pipeline pipeline-async]]
    [clojure.string]
-   [clojure.spec.alpha :as s]
    [clojure.java.io :as io])
   (:import
    (javax.swing JFrame JLabel JButton SwingConstants JMenuBar JMenu JTextArea JScrollPane JPanel BoxLayout)
