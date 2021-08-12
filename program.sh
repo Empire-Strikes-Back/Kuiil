@@ -7,8 +7,7 @@ repl(){
     :main-ns get-to-the-ship.main \
     :port 7788 \
     :host '"0.0.0.0"' \
-    :repl? true \
-    :nrepl? false
+    :repl? true
 }
 
 main(){
