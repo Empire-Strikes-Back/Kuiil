@@ -12,7 +12,7 @@
 #_(println (System/getProperty "clojure.core.async.pool-size"))
 (do (set! *warn-on-reflection* true) (set! *unchecked-math* true))
 
-(defonce stateA nil)
+(defonce stateA (atom nil))
 (def ^:dynamic jframe nil)
 
 (defn window
