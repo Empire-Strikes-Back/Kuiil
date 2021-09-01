@@ -28,13 +28,16 @@
 
 (defn eval*
   [form]
-  (let [result (binding [*ns* ns*]
+  (let [string-writer (java.io.StringWriter.)
+        result (binding [*ns* ns*
+                         *out* string-writer]
                   (eval form)
                 )]
     (doto output
       (.append "=> ")
       (.append (str form))
       (.append "\n")
+      (.append (str string-writer))
       (.append (pr-str result))
     )
 
