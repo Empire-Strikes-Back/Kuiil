@@ -5,7 +5,7 @@
     [clojure.string]
     [clojure.java.io :as io])
   (:import
-    (javax.swing JFrame)
+    (javax.swing JFrame WindowConstants)
   )    
 )
 
@@ -20,6 +20,7 @@
   (let [jframe (JFrame. "i am get-to-the-ship program")]
 
   (doto jframe
+    (.setDefaultCloseOperation WindowConstants/EXIT_ON_CLOSE)
     (.setSize 1600 1200)
     (.setLocation 1700 300)
     (.setVisible true)
