@@ -197,6 +197,9 @@
     )
   )
 
+  (eval* '(dir get-to-the-ship.main))
+  (eval* '(doc draw-word))
+
   nil
   )
 )
