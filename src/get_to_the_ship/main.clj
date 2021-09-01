@@ -6,7 +6,7 @@
     [clojure.string]
     [clojure.java.io :as io])
   (:import
-    (javax.swing JFrame WindowConstants)
+    (javax.swing JFrame WindowConstants ImageIcon)
   )    
 )
 
@@ -19,6 +19,10 @@
 (defn window
   []
   (let [jframe (JFrame. "i am get-to-the-ship program")]
+
+  (when-let [url (io/resource "icon.png")]
+    (.setIconImage jframe (.getImage (ImageIcon. url)))
+  )
 
   (doto jframe
     (.setDefaultCloseOperation WindowConstants/EXIT_ON_CLOSE)
