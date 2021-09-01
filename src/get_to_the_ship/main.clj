@@ -37,6 +37,13 @@
       (.append "\n")
       (.append (pr-str result))
     )
+
+    (go
+      (<! (timeout 10))
+      (let [scrollbar (.getVerticalScrollBar scroll-pane)]
+        (.setValue scrollbar (.getMaximum scrollbar) )
+      )
+    )
   )
 )
 
