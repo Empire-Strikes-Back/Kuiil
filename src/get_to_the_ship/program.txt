@@ -4,6 +4,7 @@ i have only back-and-white canvas and repl
 my repl is clojure repl
 my repl swing text area, input is one line
 my window is fixed size and is no more that third of screen
+i have no settings
 
 my world is this:
 
