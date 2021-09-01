@@ -8,8 +8,9 @@
     [clojure.repl :refer [doc dir source]])
   (:import
     (javax.swing JFrame WindowConstants ImageIcon JTextArea JScrollPane JPanel BoxLayout)
-    (java.awt Canvas Graphics)
+    (java.awt Canvas Graphics Graphics2D Shape Color)
     (java.awt.event KeyListener KeyEvent)
+    (java.awt.geom Ellipse2D Ellipse2D$Double)
   )    
 )
 
@@ -22,7 +23,7 @@
 (def ^:dynamic ^JTextArea repl nil)
 (def ^:dynamic ^JTextArea output nil)
 (def ^:dynamic ^JScrollPane scroll-pane nil)
-(def ^:dynamic ^Graphics graphics nil)
+(def ^:dynamic ^Graphics2D graphics nil)
 (defonce ns* (find-ns 'get-to-the-ship.main))
 
 (defn eval*
@@ -127,6 +128,63 @@
   (alter-var-root #'get-to-the-ship.main/output (constantly output))
   (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
 
+  (add-watch stateA :watch-fn 
+    (fn [ref wathc-key old-state new-state]
+      
+      (clear-canvas)
+      (.setPaint graphics Color/BLACK)
+      
+      (doseq [[k value] new-state]
+
+        (condp identical? (:shape value)
+          
+          :hero
+          (let [{:keys [x y name]} value
+                size 3
+                point (Ellipse2D$Double. ^int x ^int y size size)]
+             (.fill graphics point)
+             (.drawString graphics ^String name ^int x ^int y)
+            )
+
+          :ship
+          (let [{:keys [x y name]} value
+                 ]
+             (.drawString graphics ^String name ^int x ^int y)
+            )
+        
+          (do nil)
+        )
+
+      )
+     
+     ))
+
+  (go
+    (<! (timeout 100))
+    (let [heroes (->>
+                  ["el" "cee" "bib" "ar"]
+                  (into {}
+                    (comp
+                      (map (fn [name]
+                          {:name name
+                          :shape :hero
+                          :x (+ 100 (rand-int 1400))
+                          :y (+ 100 (rand-int 700)) }
+                          ) )
+                      (map (fn [value]
+                          [(:name value) value]
+                          ) )
+                      )
+                    )
+                  )
+          ship {:ship {:name "ship"
+                       :shape :ship
+                       :x (+ 100 (rand-int 1400))
+                       :y (+ 100 (rand-int 700))} }
+          ]
+      (swap! stateA merge heroes ship)
+    )
+  )
 
   nil
   )
