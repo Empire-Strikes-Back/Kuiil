@@ -49,6 +49,11 @@
   (.drawString graphics "word" 500 500)
 )
 
+(defn clear-canvas
+  []
+  (.clearRect graphics 0 0  (.getWidth canvas)  (.getHeight canvas))
+)
+
 (defn window
   []
   (let [jframe (JFrame. "i am get-to-the-ship program")
