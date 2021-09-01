@@ -1,5 +1,7 @@
 i am get-to-the-ship program, i say:
 
+i have only back-and-white canvas and repl
+
 my world is this:
 
 four heroes accidentally come together and set off to find vitaal ship
