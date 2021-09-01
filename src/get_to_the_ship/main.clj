@@ -8,6 +8,8 @@
 #_(println (System/getProperty "clojure.core.async.pool-size"))
 (do (set! *warn-on-reflection* true) (set! *unchecked-math* true))
 
+(defonce stateA nil)
+
 (defn window
   []
 )
@@ -19,6 +21,7 @@
 (defn -main
   [& args]
   (let []
+    (reset! stateA {})
 
   )
 )
