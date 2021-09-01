@@ -14,7 +14,11 @@ main(){
 }
 
 uberjar(){
-  echo 1
+  clojure \
+    -X:uberjar genie.core/process \
+    :main-ns get-to-the-ship.main \
+    :filename '"out/get-to-the-ship.jar"' \
+    :paths '["src" "out/identicon"]'
 }
 
 release(){
