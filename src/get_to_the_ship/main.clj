@@ -8,7 +8,7 @@
     [clojure.repl :refer [doc dir source]])
   (:import
     (javax.swing JFrame WindowConstants ImageIcon JTextArea JScrollPane JPanel BoxLayout)
-    (java.awt Canvas Graphics Graphics2D Shape Color)
+    (java.awt Canvas Graphics Graphics2D Shape Color Polygon)
     (java.awt.event KeyListener KeyEvent)
     (java.awt.geom Ellipse2D Ellipse2D$Double)
   )    
@@ -139,17 +139,18 @@
         (condp identical? (:shape value)
           
           :hero
-          (let [{:keys [x y name]} value
+          (let [{:keys [^int x ^int y name]} value
                 size 3
-                point (Ellipse2D$Double. ^int x ^int y size size)]
+                point (Ellipse2D$Double. x y size size)]
              (.fill graphics point)
-             (.drawString graphics ^String name ^int x ^int y)
+             (.drawString graphics ^String name x y)
             )
 
           :ship
-          (let [{:keys [x y name]} value
-                 ]
-             (.drawString graphics ^String name ^int x ^int y)
+          (let [{:keys [^int x ^int y name]} value
+                 ship (Polygon. (int-array [x (+ x 40) x (+ x 20)]) (int-array [(+ y 10) (+ y 30) (+ y 50) (+ y 30)]) 4) ]
+             (.drawString graphics ^String name x y)
+             (.draw graphics ship)
             )
         
           (do nil)
