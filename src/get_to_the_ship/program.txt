@@ -6,6 +6,7 @@ my repl swing text area, input is one line
 i do not limit or alter player eval in any way - my repl is complete unabridged access to me as program
 my window is fixed size and is no more that third of screen
 i have no settings
+player sees me in my entirety within window, no scrolling
 
 my world is this:
 
