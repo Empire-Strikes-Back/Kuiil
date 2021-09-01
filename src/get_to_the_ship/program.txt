@@ -8,6 +8,7 @@ my window is fixed size and is no more that third of screen
 i have no settings
 player sees me in my entirety within window, no scrolling
 player sees me in my entirety from start, all revealed
+i have no tiles, coordinates or distances
 
 my world is this:
 
