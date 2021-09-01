@@ -14,6 +14,13 @@ main(){
 }
 
 uberjar(){
+
+  clojure \
+    -X:identicon zazu.core/process \
+    :word '"get-to-the-ship"' \
+    :filename '"out/idenicon/icon.png"' \
+    :size 256
+
   clojure \
     -X:uberjar genie.core/process \
     :main-ns get-to-the-ship.main \
