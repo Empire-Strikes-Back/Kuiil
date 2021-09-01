@@ -4,10 +4,12 @@
     [clojure.core.async :as a :refer [<! >! <!! >!! chan put! take! go alt! alts! do-alts close! timeout pipe mult tap untap 
                                       pub sub unsub mix admix unmix dropping-buffer sliding-buffer pipeline pipeline-async to-chan! thread]]
     [clojure.string]
-    [clojure.java.io :as io])
+    [clojure.java.io :as io]
+    [clojure.repl :refer [doc dir source]])
   (:import
     (javax.swing JFrame WindowConstants ImageIcon JTextArea JScrollPane JPanel BoxLayout)
     (java.awt Canvas Graphics)
+    (java.awt.event KeyListener KeyEvent)
   )    
 )
 
@@ -21,6 +23,18 @@
 (def ^:dynamic ^JTextArea output nil)
 (def ^:dynamic ^JScrollPane scroll-pane nil)
 (def ^:dynamic ^Graphics graphics nil)
+
+(defn eval*
+  [form]
+  (let [result (eval form)]
+    (doto output
+      (.append "=> ")
+      (.append (str form))
+      (.append "\n")
+      (.append (pr-str result))
+    )
+  )
+)
 
 (defn window
   []
@@ -43,6 +57,26 @@
   
   (doto output
     (.setEditable false)
+  )
+
+  (doto repl
+    (.addKeyListener (reify KeyListener
+                      (keyPressed 
+                        [_ event]
+                          (when (= (.getKeyCode ^KeyEvent event) KeyEvent/VK_ENTER)
+                            (.consume ^KeyEvent event)
+                          )
+                        )
+                      (keyReleased 
+                        [_ event]
+                         (when (= (.getKeyCode ^KeyEvent event) KeyEvent/VK_ENTER)
+                            (-> (.getText repl) (clojure.string/trim) (clojure.string/trim-newline) (read-string) (eval*))
+                            (.setText repl "")
+                          )
+                        )
+                      (keyTyped 
+                        [_ event])
+                       ))
   )
 
   (doto scroll-pane
