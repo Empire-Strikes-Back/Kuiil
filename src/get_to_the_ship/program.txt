@@ -8,3 +8,10 @@ one - el - comes from a sandy planet with traditions so suffocating she chooses 
 one - cee - is an older civil officer who has his life set but realizes it's empty and seeks something he does not know yet, he leaves the service and joins a ship as a crew
 one - bib - is an adventurous avanturist, do-first think-later, who is running from yet another trouble, he does not want to go, but joins out of spite and curiosity
 one - ar - comes from a grey rocky isolated planet on the outskirts, he builds receiver to listen to galactic frequencies and learns about the ship, he sets off to find it
+
+heroes never programmed before, but face challenges on their way they have to program - they learn as they go:
+
+el has to assemble and program an out-of-order ship she finds to take off from her planet
+ar builds and programs receiver to connect to galactic internet
+cee lies that he can and joins a ship crew as engineer - he has to learn to program transport ship's systems
+bib has to program doors to escape from capture of this time more serious trouble he is in
