@@ -18,7 +18,7 @@ uberjar(){
   clojure \
     -X:identicon zazu.core/process \
     :word '"get-to-the-ship"' \
-    :filename '"out/idenicon/icon.png"' \
+    :filename '"out/identicon/icon.png"' \
     :size 256
 
   clojure \
