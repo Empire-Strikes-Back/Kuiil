@@ -1,6 +1,7 @@
 i am get-to-the-ship program, i say:
 
 i have only back-and-white canvas and repl
+my repl is clojure repl
 
 my world is this:
 
