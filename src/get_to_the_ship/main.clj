@@ -23,10 +23,13 @@
 (def ^:dynamic ^JTextArea output nil)
 (def ^:dynamic ^JScrollPane scroll-pane nil)
 (def ^:dynamic ^Graphics graphics nil)
+(defonce ns* (find-ns 'get-to-the-ship.main))
 
 (defn eval*
   [form]
-  (let [result (eval form)]
+  (let [result (binding [*ns* ns*]
+                  (eval form)
+                )]
     (doto output
       (.append "=> ")
       (.append (str form))
@@ -36,11 +39,20 @@
   )
 )
 
+(defn draw-line
+  []
+  (.drawLine graphics 0 0 700 700)
+)
+
+(defn draw-word 
+  []
+  (.drawString graphics "word" 500 500)
+)
+
 (defn window
   []
   (let [jframe (JFrame. "i am get-to-the-ship program")
         canvas (Canvas.)
-        graphics (.getGraphics canvas)
         jpanel (JPanel.)
         repl (JTextArea. 1 100)
         output (JTextArea. 14 100)
@@ -103,7 +115,7 @@
   (alter-var-root #'get-to-the-ship.main/scroll-pane (constantly scroll-pane))
   (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
   (alter-var-root #'get-to-the-ship.main/output (constantly output))
-  (alter-var-root #'get-to-the-ship.main/graphics (constantly graphics))
+  (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
 
 
   nil
