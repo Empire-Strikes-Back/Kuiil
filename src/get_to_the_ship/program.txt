@@ -9,6 +9,7 @@ i have no settings
 player sees me in my entirety within window, no scrolling
 player sees me in my entirety from start, all revealed
 i have no tiles, coordinates or distances
+heroes must first unite, then go to the ship
 
 my world is this:
 
