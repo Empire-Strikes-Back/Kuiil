@@ -1,0 +1,32 @@
+i am Get-To-The-Ship program, i say:
+
+i have only back-and-white canvas and repl
+my repl is clojure repl
+my repl swing text area, input is one line
+i do not limit or alter player eval in any way - my repl is complete unabridged access to me as program
+my window is fixed size and is no more that third of screen
+i have no settings
+player sees me in my entirety within window, no scrolling
+player sees me in my entirety from start, all revealed
+i am simple, i have few details
+i have no time
+i have no tiles, coordinates or distances
+i have no concept of money or fight for resources
+heroes must first unite, then go to the ship
+
+my world is this:
+
+four heroes accidentally come together and set off to find vitaal ship
+when they find the ship, they learn from ship's data that vitaal are no more - they didn't use and misuse their technology, settled and turned into abstract
+
+one - El - comes from a sandy planet with traditions so suffocating she chooses to leave - she disobeys her family and has to run days through desert to fly off planet
+one - Cee - is an older civil officer who has his life set but realizes it's empty and seeks something he does not know yet, he leaves the service and joins a ship as a crew
+one - Bib - is an adventurous avanturist, do-first think-later, who is running from yet another trouble, he does not want to go, but joins out of spite and curiosity
+one - Ar - comes from a grey rocky isolated planet on the outskirts, he builds receiver to listen to galactic frequencies and learns about the ship, he sets off to find it
+
+heroes never programmed before, but face challenges on their way they have to program - they learn as they go:
+
+El has to assemble and program an out-of-order ship she finds to take off from her planet
+Ar builds and programs receiver to connect to galactic internet
+Cee lies that he can and joins a ship crew as engineer - he has to learn to program transport ship's systems
+Bib has to program doors to escape from capture of this time more serious trouble he is in

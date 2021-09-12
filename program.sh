@@ -3,28 +3,28 @@
 repl(){
   clj \
     -J-Dclojure.core.async.pool-size=1 \
-    -X:repl ripley.core/process \
-    :main-ns get-to-the-ship.main
+    -X:repl Ripley.core/process \
+    :main-ns Get-To-The-Ship.main
 }
 
 main(){
   clojure \
     -J-Dclojure.core.async.pool-size=1 \
-    -M -m get-to-the-ship.main
+    -M -m Get-To-The-Ship.main
 }
 
 uberjar(){
 
   clojure \
-    -X:identicon zazu.core/process \
-    :word '"get-to-the-ship"' \
+    -X:identicon Zazu.core/process \
+    :word '"Get-To-The-Ship"' \
     :filename '"out/identicon/icon.png"' \
     :size 256
 
   clojure \
-    -X:uberjar genie.core/process \
-    :main-ns get-to-the-ship.main \
-    :filename '"out/get-to-the-ship.jar"' \
+    -X:uberjar Genie.core/process \
+    :main-ns Get-To-The-Ship.main \
+    :filename '"out/Get-To-The-Ship.jar"' \
     :paths '["src" "out/identicon"]'
 }
 

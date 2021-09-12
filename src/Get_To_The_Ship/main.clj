@@ -1,4 +1,4 @@
-(ns get-to-the-ship.main
+(ns Get-To-The-Ship.main
   (:gen-class)
   (:require 
     [clojure.core.async :as a :refer [<! >! <!! >!! chan put! take! go alt! alts! do-alts close! timeout pipe mult tap untap 
@@ -24,7 +24,7 @@
 (def ^:dynamic ^JTextArea output nil)
 (def ^:dynamic ^JScrollPane scroll-pane nil)
 (def ^:dynamic ^Graphics2D graphics nil)
-(defonce ns* (find-ns 'get-to-the-ship.main))
+(defonce ns* (find-ns 'Get-To-The-Ship.main))
 
 (defn eval*
   [form]
@@ -72,7 +72,7 @@
 
 (defn window
   []
-  (let [jframe (JFrame. "i am get-to-the-ship program")
+  (let [jframe (JFrame. "i am Get-To-The-Ship program")
         canvas (Canvas.)
         jpanel (JPanel.)
         repl (JTextArea. 1 100)
@@ -131,12 +131,12 @@
     (.setVisible true)
   )
 
-  (alter-var-root #'get-to-the-ship.main/jframe (constantly jframe))
-  (alter-var-root #'get-to-the-ship.main/canvas (constantly canvas))
-  (alter-var-root #'get-to-the-ship.main/scroll-pane (constantly scroll-pane))
-  (alter-var-root #'get-to-the-ship.main/repl (constantly repl))
-  (alter-var-root #'get-to-the-ship.main/output (constantly output))
-  (alter-var-root #'get-to-the-ship.main/graphics (constantly (.getGraphics canvas)))
+  (alter-var-root #'Get-To-The-Ship.main/jframe (constantly jframe))
+  (alter-var-root #'Get-To-The-Ship.main/canvas (constantly canvas))
+  (alter-var-root #'Get-To-The-Ship.main/scroll-pane (constantly scroll-pane))
+  (alter-var-root #'Get-To-The-Ship.main/repl (constantly repl))
+  (alter-var-root #'Get-To-The-Ship.main/output (constantly output))
+  (alter-var-root #'Get-To-The-Ship.main/graphics (constantly (.getGraphics canvas)))
 
   (add-watch stateA :watch-fn 
     (fn [ref wathc-key old-state new-state]
@@ -173,7 +173,7 @@
   (go
     (<! (timeout 100))
     (let [heroes (->>
-                  ["el" "cee" "bib" "ar"]
+                  ["El" "Cee" "Bib" "Ar"]
                   (into {}
                     (comp
                       (map (fn [name]
@@ -197,7 +197,7 @@
     )
   )
 
-  (eval* '(dir get-to-the-ship.main))
+  (eval* '(dir Get-To-The-Ship.main))
   (eval* '(doc draw-word))
 
   nil
@@ -207,7 +207,7 @@
 (defn reload
   []
   (require 
-    '[get-to-the-ship.main]
+    '[Get-To-The-Ship.main]
     :reload)
 )
 
