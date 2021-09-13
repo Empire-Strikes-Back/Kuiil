@@ -12,7 +12,6 @@ i am simple, i have few details
 i have no time
 i have no tiles, coordinates or distances
 i have no concept of money or fight for resources
-when it's hero's turn, i show their name and others - as dots (the map as hero's party sees it)
 
 my world is this:
 
