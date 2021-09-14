@@ -17,6 +17,10 @@ when it's hero's turn, i show their name and others - as dots (the map as hero's
 my world is this:
 
 El, Ar, Bib and Cee coincidentally turn up on one of newer planets, each as part of their own separate party, uncoordinated
+El aboard of research ship
+Cee aboard transport ship
+Ar aboard construction ship
+Bib aboard racing ship
 
 one - El - comes from a sandy planet with traditions so suffocating she chooses to leave - she disobeys her family and has to run days through desert to fly off planet
 one - Cee - is an older civil officer who has his life set but realizes it's empty and seeks something he does not know yet, he leaves the service and joins a ship as a crew
