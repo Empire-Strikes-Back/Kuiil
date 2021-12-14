@@ -23,7 +23,7 @@ uberjar(){
 
   clojure \
     -X:uberjar Genie.core/process \
-    :main-ns Get-To-The-Ship.main \
+    :main-ns Kuiil.main \
     :filename '"out/Kuiil.jar"' \
     :paths '["src" "out/identicon"]'
 }
