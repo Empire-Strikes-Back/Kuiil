@@ -1,4 +1,4 @@
-i am Kuiil, my cut is half the blurrg you've hepled capture
+my cut is half the blurrg you've hepled capture
 
 my language is clojure
 my runtime is jvm
